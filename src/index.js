@@ -13,6 +13,7 @@ for (const file of commandFiles) {
 
 client.once('ready', () => console.log('READY!'));
 client.on('message', message => {
+	if (message.channel == 'dm') return;
 	if (!message.content.startsWith(client.config.prefix) || message.author.bot) return;
 	const args = message.content.slice(client.config.prefix.length).split(/ +/);
 	const commandName = args.shift().toLowerCase();
